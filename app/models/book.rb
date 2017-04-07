@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :user, optional: true
+  has_many :bookings
 
   validates :title, presence: true, uniqueness: true
   validates :author, presence: true
