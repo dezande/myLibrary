@@ -1,0 +1,33 @@
+<div class="col-md-8 col-md-offset-2">
+
+  <h3>Books</h3>
+  <%= link_to('Add book', new_book_path) %>
+  <% @books.sort.each do |book| %>
+    <div class="card">
+      <p><%= book.title %> by <%= book.author %></p>
+      <p>Summary: <%= book.summary %></p>
+
+
+
+      <% if book.status == 'borrowed' %>
+        <p style="display:inline">Status: Borrowed by</p>
+        <% Booking.all.each do |booking| %>
+          <% if booking.book == book %>
+            <p style="display:inline"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+          <% end %>
+        <% end %>
+      <% else %>
+        <p>Status: 'Available'</p>
+      <% end %>
+
+      <br>
+      <%= link_to('Edit', edit_book_path(book)) %>
+      <% if book.status == 'available' %>
+        <%= link_to book, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+          <p>delete</p>
+        <% end %>
+      <% end %>
+
+    </div>
+  <% end %>
+</div>
