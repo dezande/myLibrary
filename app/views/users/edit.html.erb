@@ -1,0 +1,26 @@
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <div class="col-md-4 col-md-offset-4 card">
+    <div class="form-inputs">
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.input :first_name, required: true, autofocus: true %>
+        </div>
+        <div class="col-md-6">
+          <%= f.input :last_name, required: true %>
+        </div>
+        <div class="col-md-12">
+          <%= f.input :email, required: true %>
+        </div>
+        <div class="col-md-12">
+          <p>add a pic here</p>
+        </div>
+        <div class="form-actions text-center col-md-12">
+          <%= f.button :submit, "Edit user", class: "btn btn-primary" %>
+          <br>
+          <%= link_to "Back", :back %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

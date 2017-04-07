@@ -16,17 +16,24 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(users_params)
-    @user.save
-    redirect_to :back
+    if @user.save
+      redirect_to users_path #, notice: 'User was successfully created.'
+    else
+      render :new
+    end
   end
 
   def update
-    @user.update(users_params)
+    if @user.update(users_params)
+      redirect_to users_path #, notice: 'User was successfully updated'
+    else
+      render :edit
+    end
   end
 
   def destroy
-    @user.destroy
-    redirect_to :back, notice: 'User was successfully deleted.'
+    @user.destroy if can_delete_user
+    redirect_to users_path #, notice: 'User was successfully deleted.'
   end
 
   private
@@ -37,5 +44,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def can_delete_user
+    if Booking.find_by id: @user.id
+      false
+    else
+      true
+    end
   end
 end
