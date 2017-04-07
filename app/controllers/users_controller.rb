@@ -47,10 +47,10 @@ class UsersController < ApplicationController
   end
 
   def can_delete_user
-    if Booking.find_by id: @user.id
-      false
-    else
+    if @user.bookings.count == 0
       true
+    else
+      false
     end
   end
 end

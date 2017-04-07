@@ -7,8 +7,18 @@
       <p><%= user.first_name %> <%= user.last_name %></p>
       <p><%= user.email %></p>
       <%= link_to('Edit', edit_user_path(user)) %>
-      <%= link_to user, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
-        <p>delete</p>
+
+      <% if user.bookings.count == 0 %>
+        <%= link_to user, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+          <p>delete</p>
+        <% end %>
+      <% end %>
+
+      <% if user.bookings.count != 0 %>
+        <p>Borrowed books</p>
+        <% user.bookings.each do |booking| %>
+          <%= booking.book.title %><br>
+        <% end %>
       <% end %>
     </div>
   <% end %>
