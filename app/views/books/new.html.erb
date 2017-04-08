@@ -10,7 +10,7 @@
           <%= f.input :author, required: true %>
         </div>
         <div class="col-md-12">
-          <%= f.input :summary %>
+          <%= f.input :summary, as: :text %>
         </div>
         <div class="form-actions text-center col-md-12">
           <%= f.button :submit, "Create book", class: "btn btn-primary" %>

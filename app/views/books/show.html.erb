@@ -1,0 +1,42 @@
+<div class="col-md-4 col-md-offset-4">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-10">
+        <h4 class="book-title"><%= @book.title %></h4>
+      </div>
+      <div class="col-md-2">
+        <% if @book.status == 'available' %>
+          <%= link_to @book, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+            <i class="fa fa-trash float-right" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+        <%= link_to(edit_book_path(@book)) do %>
+          <i class="fa fa-pencil float-right" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    </div>
+    <em>by <%= @book.author %></em>
+    <p><b>Summary:</b> <%= @book.summary %></p>
+    <% if @book.status == 'borrowed' %>
+      <p style="display:inline"><b>Status:</b> Borrowed by</p>
+      <% Booking.all.each do |booking| %>
+        <% if booking.book == @book %>
+          <%= link_to(user_path(booking.user)) do %>
+            <p style="display:inline"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <p><b>Status:</b>'Available'</p>
+    <% end %>
+    <div class="text-center">
+      <%= link_to "Back", books_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

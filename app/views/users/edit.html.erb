@@ -13,7 +13,8 @@
           <%= f.input :email, required: true %>
         </div>
         <div class="col-md-12">
-          <p>add a pic here</p>
+          <%= f.input :photo %>
+          <%= f.input :photo_cache, as: :hidden %>
         </div>
         <div class="form-actions text-center col-md-12">
           <%= f.button :submit, "Edit user", class: "btn btn-primary" %>

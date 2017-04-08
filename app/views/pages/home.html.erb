@@ -1,6 +1,27 @@
-<div class="col-md-8 col-md-offset-2">
-  <h4>Users</h4>
-  <p><%= @users.count %> users</p>
-  <h4>Books</h4>
-  <p><%= @books.count %> books</p>
+<div class="col-md-4 col-md-offset-4">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-3">
+        <%= image_tag "reader.gif", width: 80, height: 80, crop: :fill %>
+      </div>
+      <div class="col-md-9">
+        <h3 class="home-title">Users</h3>
+        <p>Total: <%= @users.count %></p>
+        <p>Borrowers: <%= @borrowers %></p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-3">
+        <%= image_tag "library.png", width: 80, height: 80, crop: :fill %>
+      </div>
+      <div class="col-md-9">
+        <h3 class="home-title">Books</h3>
+        <p>Total: <%= @books.count %></p>
+        <p>Available: <%= @available_books %></p>
+        <p>Borrowed: <%= @borrowed_books %></p>
+      </div>
+    </div>
+  </div>
 </div>

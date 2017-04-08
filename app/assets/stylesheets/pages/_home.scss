@@ -1,5 +1,17 @@
 .card {
-  border: 1px solid gray;
+  border: 1px solid #e9e9e9;
   padding: 20px;
   margin-bottom: 10px;
+}
+
+.fa-plus-square{
+  font-size: 1.5em;
+}
+
+.float-right{
+  float: right;
+}
+
+.home-title{
+  color: $blue;
 }
