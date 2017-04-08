@@ -4,6 +4,9 @@
   <%= link_to('Add user', new_user_path) %>
   <% @users.each do |user| %>
     <div class="card">
+      <% if user.photo  %>
+        <%= image_tag user.photo, width: 80, height: 80, crop: :fill %>
+      <% end %>
       <p><%= user.first_name %> <%= user.last_name %></p>
       <p><%= user.email %></p>
       <%= link_to('Edit', edit_user_path(user)) %>

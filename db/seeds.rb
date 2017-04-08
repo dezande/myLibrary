@@ -9,9 +9,9 @@ Booking.destroy_all
 Book.destroy_all
 User.destroy_all
 
-user1 = User.create!(first_name: 'David', last_name: 'James', email: 'james@gmail.com')
-user2 = User.create!(first_name: 'Eric', last_name: 'Leroy', email: 'eric@gmail.com')
-user3 = User.create!(first_name: 'John', last_name: 'Snow', email: 'john@gmail.com')
+user1 = User.create!(first_name: 'Harvey', last_name: 'Specter', email: 'james@gmail.com', photo: "http://res.cloudinary.com/dx9hracbg/image/upload/v1491674983/harvey_zxkcr0.png")
+user2 = User.create!(first_name: 'Walter', last_name: 'White', email: 'walter@gmail.com', photo: "http://res.cloudinary.com/dx9hracbg/image/upload/v1491674836/walter_ngkehd.png")
+user3 = User.create!(first_name: 'John', last_name: 'Snow', email: 'john@gmail.com', photo: "http://res.cloudinary.com/dx9hracbg/image/upload/v1491674231/john_a4q6ue.png")
 
 
 book1 = Book.create!(title: 'The Lost Symbol' , author: 'D. Brown', summary: 'Set within the hidden chambers, tunnels, and temples of Washington, D.C., The Lost Symbol accelerates through a startling landscape toward an unthinkable finale', status: 'borrowed')
