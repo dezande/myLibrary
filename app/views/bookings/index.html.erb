@@ -1,0 +1,25 @@
+<%= simple_form_for @booking, method: :delete do |f| %>
+  <%= f.error_notification %>
+  <div class="col-md-4 col-md-offset-4 card">
+    <% if @bookings.count != 0 %>
+      <div class="form-inputs">
+        <div class="row text-center">
+          <%= f.select :id, options_for_select(@bookings.map { |booking| [booking.book.title, booking.id]}) %>
+          <div class="form-actions col-md-12">
+            <%= f.button :submit, "Return the book", class: "btn btn-primary" %>
+            <br>
+            <%= link_to "Back", :back %>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <p>All the books are available!</p>
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+
+
