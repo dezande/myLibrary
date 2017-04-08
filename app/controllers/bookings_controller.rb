@@ -34,6 +34,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking][:id])
     @book = @booking.book
     @book.status = "available"
+    @book.save
     @booking.destroy
     redirect_to root_path
   end
