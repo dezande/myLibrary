@@ -4,15 +4,11 @@
     <h3 class="text-center">Borrow books</h3>
     <% if @books.count != 0 %>
       <div class="form-inputs">
-        <div class="row margin-top-booking">
-          <div class="col-md-6 text-center">
-            <%= f.label 'User:', class: 'borrow-label' %>
-            <%= f.collection_select :user_id, @users, :id, :email %>
-          </div>
-            <div class="col-md-6 text-center">
-            <%= f.label 'Book:', class: 'borrow-label' %>
-            <%= f.collection_select :book_id, @books, :id, :title %>
-          </div>
+        <div class="row margin-top-booking text-center">
+          <%= f.label 'User:', class: 'borrow-label' %>
+          <%= f.collection_select :user_id, @users, :id, :email %>
+          <%= f.label 'Book:', class: 'borrow-label book-label' %>
+          <%= f.collection_select :book_id, @books, :id, :title %>
           <div class="form-actions text-center col-md-12">
             <%= f.button :submit, "Borrow", class: "btn btn-primary margin-top-booking" %>
             <br>

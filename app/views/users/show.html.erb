@@ -8,19 +8,9 @@
           <%= image_tag "default-avatar.png", width: 80, height: 80, crop: :fill %>
         <% end %>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-9">
         <h4><%= @user.first_name %> <%= @user.last_name %></h4>
         <p><%= @user.email %></p>
-      </div>
-      <div class="col-md-3">
-        <% if @user.bookings.count == 0 %>
-          <%= link_to @user, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
-            <i class="fa fa-trash float-right" aria-hidden="true"></i>
-          <% end %>
-        <% end %>
-        <%= link_to(edit_user_path(@user)) do %>
-          <i class="fa fa-pencil float-right" aria-hidden="true"></i>
-        <% end %>
       </div>
     </div>
     <% if @user.bookings.count != 0 %>
