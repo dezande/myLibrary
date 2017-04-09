@@ -1,5 +1,5 @@
 <div class="col-md-6 col-md-offset-3">
-  <div class="text-center">
+  <div class="text-center margin-bottom">
     <h3 style="display:inline">Books</h3>
     <%= link_to(new_book_path) do %>
       <i class="fa fa-plus-square fa-2x" aria-hidden="true" style="display:inline"></i>
@@ -7,30 +7,35 @@
   </div>
   <% @books.sort.each do |book| %>
     <div class="card">
-      <%= link_to(book_path(book)) do %>
-        <h4><%= book.title %> - <%= book.author %></h4>
-      <% end %>
-      <% if book.status == 'borrowed' %>
-        <p style="display:inline">Status: Borrowed by</p>
-        <% Booking.all.each do |booking| %>
-          <% if booking.book == book %>
-            <%= link_to(user_path(booking.user)) do %>
-              <p style="display:inline"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+      <div class="row">
+        <div class="col-md-10">
+          <%= link_to(book_path(book)) do %>
+            <h4><%= book.title %> - <%= book.author %></h4>
+          <% end %>
+          <% if book.status == 'borrowed' %>
+            <p style="display:inline"><b>Status:</b> Borrowed by</p>
+            <% Booking.all.each do |booking| %>
+              <% if booking.book == book %>
+                <%= link_to(user_path(booking.user)) do %>
+                  <p style="display:inline"><%= booking.user.first_name %> <%= booking.user.last_name %></p>
+                <% end %>
+              <% end %>
+            <% end %>
+          <% else %>
+            <p><b>Status:</b> 'Available'</p>
+          <% end %>
+        </div>
+        <div class="col-md-2">
+          <% if book.status == 'available' %>
+            <%= link_to book, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
+              <i class="fa fa-trash float-right" aria-hidden="true"></i>
             <% end %>
           <% end %>
-        <% end %>
-      <% else %>
-        <p>Status: 'Available'</p>
-      <% end %>
-      <br>
-      <%= link_to(edit_book_path(book)) do %>
-        <i class="fa fa-pencil" aria-hidden="true"></i>
-      <% end %>
-      <% if book.status == 'available' %>
-        <%= link_to book, method: :delete, remote: true, data: {confirm: "Are you sure?"} do %>
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        <% end %>
-      <% end %>
+          <%= link_to(edit_book_path(book)) do %>
+            <i class="fa fa-pencil float-right" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

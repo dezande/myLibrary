@@ -2,25 +2,25 @@
   <div class="card">
     <div class="row">
       <div class="col-md-3">
-        <%= image_tag "reader.gif", width: 80, height: 80, crop: :fill %>
+        <%= image_tag "reader.gif", width: 80, height: 80, crop: :fill, class: 'home-icon' %>
       </div>
       <div class="col-md-9">
         <h3 class="home-title">Users</h3>
-        <p>Total: <%= @users.count %></p>
-        <p>Borrowers: <%= @borrowers %></p>
+        <p><b>Total:</b> <%= @users.count %></p>
+        <p><b>Borrowers:</b> <%= @borrowers %></p>
       </div>
     </div>
   </div>
   <div class="card">
     <div class="row">
       <div class="col-md-3">
-        <%= image_tag "library.png", width: 80, height: 80, crop: :fill %>
+        <%= image_tag "library.png", width: 80, height: 80, crop: :fill, class: 'home-icon' %>
       </div>
       <div class="col-md-9">
         <h3 class="home-title">Books</h3>
-        <p>Total: <%= @books.count %></p>
-        <p>Available: <%= @available_books %></p>
-        <p>Borrowed: <%= @borrowed_books %></p>
+        <p><b>Total:</b> <%= @books.count %></p>
+        <p><b>Available:</b> <%= @available_books %></p>
+        <p><b>Borrowed:</b> <%= @borrowed_books %></p>
       </div>
     </div>
   </div>

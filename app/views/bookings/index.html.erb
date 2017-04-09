@@ -4,10 +4,11 @@
     <h3>Return books</h3>
     <% if @bookings.count != 0 %>
       <div class="form-inputs">
-        <div class="row">
+        <div class="row margin-top-booking">
+          <%= f.label 'Book:', class: 'return-label' %>
           <%= f.select :id, options_for_select(@bookings.map { |booking| [booking.book.title, booking.id]}) %>
           <div class="form-actions col-md-12">
-            <%= f.button :submit, "Return the book", class: "btn btn-primary" %>
+            <%= f.button :submit, "Return the book", class: "btn btn-primary margin-top-booking" %>
             <br>
             <%= link_to "Back", :back %>
           </div>

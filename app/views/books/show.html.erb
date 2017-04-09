@@ -16,7 +16,7 @@
       </div>
     </div>
     <em>by <%= @book.author %></em>
-    <p><b>Summary:</b> <%= @book.summary %></p>
+    <p class="margin-top"><b>Summary:</b> <%= @book.summary %></p>
     <% if @book.status == 'borrowed' %>
       <p style="display:inline"><b>Status:</b> Borrowed by</p>
       <% Booking.all.each do |booking| %>
@@ -30,7 +30,7 @@
       <p><b>Status:</b>'Available'</p>
     <% end %>
     <div class="text-center">
-      <%= link_to "Back", books_path, class: "btn btn-primary" %>
+      <%= link_to "Back", books_path, class: "btn btn-primary margin-top" %>
     </div>
   </div>
 </div>
