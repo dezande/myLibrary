@@ -5,7 +5,9 @@
         <%= image_tag "reader.gif", width: 80, height: 80, crop: :fill, class: 'home-icon' %>
       </div>
       <div class="col-md-9">
-        <h3 class="home-title">Users</h3>
+        <%= link_to(users_path) do %>
+          <h3 class="home-title">Users</h3>
+        <% end %>
         <p><b>Total:</b> <%= @users.count %></p>
         <p><b>Borrowers:</b> <%= @borrowers %></p>
       </div>
@@ -17,7 +19,9 @@
         <%= image_tag "library.png", width: 80, height: 80, crop: :fill, class: 'home-icon' %>
       </div>
       <div class="col-md-9">
-        <h3 class="home-title">Books</h3>
+        <%= link_to(books_path) do %>
+          <h3 class="home-title">Books</h3>
+        <% end %>
         <p><b>Total:</b> <%= @books.count %></p>
         <p><b>Available:</b> <%= @available_books %></p>
         <p><b>Borrowed:</b> <%= @borrowed_books %></p>

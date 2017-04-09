@@ -26,6 +26,10 @@
   margin-left: 5px;
 }
 
+a:-webkit-any-link{
+  text-decoration: none;
+}
+
 // home page
 
 .home-title{
