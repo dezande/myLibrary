@@ -7,11 +7,6 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-
-    # @users = []
-    # User.all.each do |user|
-    #   @users << [user.first_name]
-    # end
     @users = User.all
     # only available books
     @books = Book.all.select {|book| book.status == 'available'}
@@ -24,7 +19,7 @@ class BookingsController < ApplicationController
       @book = @booking.book
       @book.status = "borrowed"
       @book.save
-      flash[:notice] = "The book #{@book.title} was successfully borrowed."
+      flash[:notice] = "#{@book.title} was borrowed."
     else
       render :new
     end
@@ -38,7 +33,7 @@ class BookingsController < ApplicationController
     @book.save
     @booking.destroy
     redirect_to root_path
-    flash[:notice] = "The book #{@book.title} was successfully returned."
+    flash[:notice] = "#{@book.title} was returned."
   end
 
   private
