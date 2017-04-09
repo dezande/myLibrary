@@ -24,6 +24,7 @@ class BookingsController < ApplicationController
       @book = @booking.book
       @book.status = "borrowed"
       @book.save
+      flash[:notice] = "The book #{@book.title} was successfully borrowed."
     else
       render :new
     end
@@ -37,6 +38,7 @@ class BookingsController < ApplicationController
     @book.save
     @booking.destroy
     redirect_to root_path
+    flash[:notice] = "The book #{@book.title} was successfully returned."
   end
 
   private

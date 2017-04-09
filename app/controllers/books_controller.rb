@@ -17,7 +17,8 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(books_params)
     if @book.save
-      redirect_to books_path #, notice: 'Book was successfully created.'
+      redirect_to books_path
+      flash[:notice] = "The book #{@book.title} was successfully created."
     else
       render :new
     end
@@ -25,7 +26,8 @@ class BooksController < ApplicationController
 
   def update
     if @book.update(books_params)
-      redirect_to books_path #, notice: 'Book was successfully updated'
+      redirect_to books_path
+      flash[:notice] = "The book #{@book.title} was successfully updated."
     else
       render :edit
     end
@@ -33,7 +35,8 @@ class BooksController < ApplicationController
 
   def destroy
     @book.destroy if can_delete_book
-    redirect_to books_path #, notice: 'Book was successfully deleted.'
+    redirect_to books_path
+    flash[:notice] = "The book #{@book.title} was successfully deleted."
   end
 
   private
